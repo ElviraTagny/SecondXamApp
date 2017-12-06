@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using SecondXamApp.Classes;
 using Xamarin.Forms;
 
 namespace SecondXamApp
@@ -20,16 +20,16 @@ namespace SecondXamApp
                 iOS: new Thickness(10, 20, 10, 0),
                 Android: new Thickness(0, 0, 0, 0),
                 WinPhone: new Thickness(10, 10, 10, 0)
-            );
+            );*/
 
             Device.OnPlatform(
                 iOS: () => {
-                    Padding = new Thickness(10, 20, 10, 0);
+                    Padding = new Thickness(10, 10, 10, 0);
                 },
                 Android: () => {
                     //TODO for Android specific
                 }
-            );*/
+            );
 
         }
             
@@ -45,17 +45,18 @@ namespace SecondXamApp
 
         void OserBtnClicked(object sender, System.EventArgs e)
         {
-            var initialColor = OserBtn.BackgroundColor;
-            OserBtn.BackgroundColor = Color.White;
             Device.OpenUri(new System.Uri("http://oserlafrique.com"));
-            OserBtn.BackgroundColor = initialColor;
         }
 
         void BackPressed(object sender, System.EventArgs e)
         {
-            BackBtn.TextColor = Color.White;
             Navigation.PopModalAsync();
         }
 
+        void ListBtnPressed(object sender, System.EventArgs e)
+        {
+            var listePage = new NavigationPage(new ListePage());
+            Navigation.PushModalAsync(listePage);
+        }
     }
 }
