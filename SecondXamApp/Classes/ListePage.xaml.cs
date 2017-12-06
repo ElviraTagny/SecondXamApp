@@ -32,6 +32,11 @@ namespace SecondXamApp.Classes
 
         }
 
-
+        void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var selectedItem = e.Item as ListViewTemplate;
+            DisplayAlert("Contact "+ selectedItem.ContactName, "Number is " + selectedItem.ContactNum, "Launch call");
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }

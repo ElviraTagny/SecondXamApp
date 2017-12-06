@@ -6,7 +6,8 @@
     Padding="20"
     Title="Liste">
 	<ListView x:Name="ListeContacts"
-        HasUnevenRows="true">
+        HasUnevenRows="true"
+        ItemTapped="OnItemTapped">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
