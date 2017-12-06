@@ -10,21 +10,49 @@ namespace SecondXamApp
         public MenuPage()
         {
             InitializeComponent();
+            // = new MenuPage();
+            /*if(Device.OS == TargetPlatform.iOS){
+                Padding = new Thickness(10, 20, 10, 0);
+            }*/
+
+            /*Padding = Device.OnPlatform(
+                iOS: new Thickness(10, 20, 10, 0),
+                Android: new Thickness(0, 0, 0, 0),
+                WinPhone: new Thickness(10, 10, 10, 0)
+            );*/
+
+            Device.OnPlatform(
+                iOS: () => {
+                Padding = new Thickness(10, 20, 10, 0); 
+            },
+                Android: () => {
+                //TODO for Android specific
+            }
+            );
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        void AAEClicked(object sender, System.EventArgs e)
         {
-            Device.OpenUri(new System.Uri("http://www.google.com"));
+            Device.OpenUri(new System.Uri("http://africanarteverywhere.com"));
         }
 
         void MunabeesBtnClicked(object sender, System.EventArgs e)
         {
-            Device.OpenUri(new System.Uri("http://www.munabees.com"));
+            Device.OpenUri(new System.Uri("http://munabees.com"));
         }
 
         void OserBtnClicked(object sender, System.EventArgs e)
         {
-            Device.OpenUri(new System.Uri("http://www.oserlafrique.com"));
+            var initialColor = OserBtn.BackgroundColor;
+            OserBtn.BackgroundColor = Color.White;
+            Device.OpenUri(new System.Uri("http://oserlafrique.com"));
+            OserBtn.BackgroundColor = initialColor;
+        }
+
+        void BackPressed(object sender, System.EventArgs e)
+        {
+            BackBtn.TextColor = Color.White;
+            Navigation.PopModalAsync();
         }
 
     }

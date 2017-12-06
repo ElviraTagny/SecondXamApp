@@ -7,8 +7,10 @@ namespace SecondXamApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new SecondXamAppPage();
+            //MainPage = new SecondXamAppPage();
+            //MainPage = new NavigationPage(new SecondXamAppPage());
+            var navPage = new NavigationPage(new SecondXamAppPage());
+            Application.Current.MainPage = navPage;
         }
 
         protected override void OnStart()

@@ -3,35 +3,55 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="SecondXamApp.MenuPage"
+    Title="Menu"
     BackgroundColor="Aqua">
-	<StackLayout
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
-        WidthRequest="200"
-        >
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuSettings" Order="Primary" Text="Settings" Priority="0" />
+    </ContentPage.ToolbarItems>-->
+
+    <StackLayout
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill" 
+        Padding="10">
         <Button 
-            Text="Découvrir Munabees"
             VerticalOptions="Start"
-            BackgroundColor="Blue"
-            TextColor="White"
-            BorderRadius="10"
-            Clicked="MunabeesBtnClicked"
-            />
-        <Button 
-            Text="Découvrir O.S.E.R. L'Afrique"
-            VerticalOptions="Start"
-            BackgroundColor="Green"
-            TextColor="White"
-            BorderRadius="10"
-            Clicked="OserBtnClicked"
+            HorizontalOptions="Start"
+            TextColor="Blue"
+            Text="Retour"
+            Clicked="BackPressed"
+            BackgroundColor="Transparent"
+            x:Name="BackBtn"
         />
-        <Button 
-            Text="Découvrir Google"
-            VerticalOptions="Start"
-            BackgroundColor="Purple"
-            TextColor="White"
-            BorderRadius="10"
-            Clicked="Handle_Clicked"
+        <StackLayout
+            HorizontalOptions="Fill"
+            VerticalOptions="CenterAndExpand">
+            <Button 
+                Text="Découvrir Munabees"
+                VerticalOptions="Start"
+                BackgroundColor="Blue"
+                TextColor="White"
+                BorderRadius="10"
+                Clicked="MunabeesBtnClicked"
+                x:Name="MunaBtn"
+                />
+            <Button 
+                Text="Découvrir O.S.E.R. L'Afrique"
+                VerticalOptions="Start"
+                BackgroundColor="Green"
+                TextColor="White"
+                BorderRadius="10"
+                Clicked="OserBtnClicked"
+                x:Name="OserBtn"
             />
+            <Button 
+                Text="Découvrir African Art Everywhere"
+                VerticalOptions="Start"
+                BackgroundColor="Purple"
+                TextColor="White"
+                BorderRadius="10"
+                Clicked="AAEClicked"
+                x:Name="AAEBtn"
+                />
+        </StackLayout>
     </StackLayout>
 </ContentPage>
