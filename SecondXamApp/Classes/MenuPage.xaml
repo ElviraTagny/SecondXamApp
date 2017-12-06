@@ -23,8 +23,9 @@
             x:Name="BackBtn"
         />
         <StackLayout
-            HorizontalOptions="Fill"
-            VerticalOptions="CenterAndExpand">
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            WidthRequest="250">
             <Button 
                 Text="Découvrir Munabees"
                 VerticalOptions="Start"

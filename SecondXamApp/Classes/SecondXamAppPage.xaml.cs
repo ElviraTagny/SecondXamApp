@@ -4,6 +4,11 @@ namespace SecondXamApp
 {
     public partial class SecondXamAppPage : ContentPage
     {
+        public SecondXamAppPage()
+        {
+            InitializeComponent();
+        }
+
         void Handle_Clicked(object sender, System.EventArgs e)
         {
             //DisplayAlert("Title", "Congrats !!", "Pff! Exit");
@@ -12,9 +17,5 @@ namespace SecondXamApp
             //await Application.Current.MainPage.PushAsync(new MenuPage());
         }
 
-        public SecondXamAppPage()
-        {
-            InitializeComponent();
-        }
     }
 }

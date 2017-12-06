@@ -10,6 +10,7 @@ namespace SecondXamApp
         public MenuPage()
         {
             InitializeComponent();
+
             // = new MenuPage();
             /*if(Device.OS == TargetPlatform.iOS){
                 Padding = new Thickness(10, 20, 10, 0);
@@ -19,18 +20,19 @@ namespace SecondXamApp
                 iOS: new Thickness(10, 20, 10, 0),
                 Android: new Thickness(0, 0, 0, 0),
                 WinPhone: new Thickness(10, 10, 10, 0)
-            );*/
+            );
 
             Device.OnPlatform(
                 iOS: () => {
-                Padding = new Thickness(10, 20, 10, 0); 
-            },
+                    Padding = new Thickness(10, 20, 10, 0);
+                },
                 Android: () => {
-                //TODO for Android specific
-            }
-            );
-        }
+                    //TODO for Android specific
+                }
+            );*/
 
+        }
+            
         void AAEClicked(object sender, System.EventArgs e)
         {
             Device.OpenUri(new System.Uri("http://africanarteverywhere.com"));
