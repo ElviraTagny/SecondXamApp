@@ -38,19 +38,27 @@ namespace SecondXamApp.Classes
         {
             var selectedItem = e.Item as ListViewTemplate;
             ((ListView)sender).SelectedItem = null;
-            var result = await DisplayAlert("Contact " + selectedItem.ContactName, "Number is " + selectedItem.ContactNum, "Cancel", "Launch call");
+            var result = await DisplayAlert("Contact " + selectedItem.ContactName, "Number is " + selectedItem.ContactNum, "Cancel", "Send SMS");
             if (!result)
             {
                 /*if (Device.OS != TargetPlatform.WinPhone)
                 {
                     Device.OpenUri(new Uri("tel:0122334455"));
                 }*/
-                var phoneDialer = CrossMessaging.Current.PhoneDialer;
+                /*var phoneDialer = CrossMessaging.Current.PhoneDialer;
                 if (phoneDialer.CanMakePhoneCall){
                     phoneDialer.MakePhoneCall("+272193343499");
                 }
                 else {
                     await DisplayAlert("Error", "This app cannot query for scheme tel on this device. Try on a real one.", "OK");
+                }*/
+
+                var smsSender = CrossMessaging.Current.SmsMessenger;
+                if(smsSender.CanSendSmsInBackground){
+                    smsSender.SendSmsInBackground(recipient:"0033624033685", message:"Coucou from Xamarin App");
+                }
+                else {
+                    await DisplayAlert("Error", "This app cannot send SMS from this device. Try on a real one.", "OK");
                 }
             }
         }
