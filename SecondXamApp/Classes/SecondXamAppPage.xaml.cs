@@ -9,11 +9,11 @@ namespace SecondXamApp
             InitializeComponent();
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        async void Handle_Clicked(object sender, System.EventArgs e)
         {
             //DisplayAlert("Title", "Congrats !!", "Pff! Exit");
-            var menuPage = new NavigationPage(new MenuPage());
-            Navigation.PushModalAsync(menuPage);
+            //var menuPage = new NavigationPage(new MenuPage());
+            await Navigation.PushAsync(new MenuPage());
             //await Application.Current.MainPage.PushAsync(new MenuPage());
         }
 

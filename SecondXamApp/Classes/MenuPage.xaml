@@ -9,7 +9,16 @@
         <ToolbarItem Name="MenuSettings" Order="Primary" Text="Settings" Priority="0" />
     </ContentPage.ToolbarItems>-->
 
-    <StackLayout
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="menuButton" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--<StackLayout
         HorizontalOptions="Fill"
         VerticalOptions="Fill" >
         <Button 
@@ -20,43 +29,39 @@
             Clicked="BackPressed"
             BackgroundColor="Transparent"
             x:Name="BackBtn"
-        />
+        />-->
         <StackLayout
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand"
             WidthRequest="250">
             <Button 
+                x:Name="MunaBtn"
                 Text="Découvrir Munabees"
                 BackgroundColor="Blue"
-                TextColor="White"
-                BorderRadius="10"
                 Clicked="MunabeesBtnClicked"
-                x:Name="MunaBtn"
+                Style="{StaticResource menuButton}"
                 />
             <Button 
+                x:Name="OserBtn"
                 Text="Découvrir O.S.E.R. L'Afrique"
                 BackgroundColor="Green"
-                TextColor="White"
-                BorderRadius="10"
+                Style="{StaticResource menuButton}"
                 Clicked="OserBtnClicked"
-                x:Name="OserBtn"
             />
             <Button 
+                x:Name="AAEBtn"
                 Text="Découvrir African Art Everywhere"
                 BackgroundColor="Purple"
-                TextColor="White"
-                BorderRadius="10"
+                Style="{StaticResource menuButton}"
                 Clicked="AAEClicked"
-                x:Name="AAEBtn"
                 />
             <Button 
+                x:Name="ListBtn"
                 Text="Afficher une liste"
                 BackgroundColor="Gray"
-                TextColor="White"
-                BorderRadius="10"
+                Style="{StaticResource menuButton}"
                 Clicked="ListBtnPressed"
-                x:Name="ListBtn"
                 />
         </StackLayout>
-    </StackLayout>
+    <!--</StackLayout>-->
 </ContentPage>

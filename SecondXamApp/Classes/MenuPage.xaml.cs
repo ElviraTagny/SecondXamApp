@@ -10,7 +10,7 @@ namespace SecondXamApp
         public MenuPage()
         {
             InitializeComponent();
-
+            NavigationPage.SetHasBackButton(this, true);
             // = new MenuPage();
             /*if(Device.OS == TargetPlatform.iOS){
                 Padding = new Thickness(10, 20, 10, 0);
@@ -48,15 +48,14 @@ namespace SecondXamApp
             Device.OpenUri(new System.Uri("http://oserlafrique.com"));
         }
 
-        void BackPressed(object sender, System.EventArgs e)
-        {
-            Navigation.PopModalAsync();
-        }
+        //void BackPressed(object sender, System.EventArgs e)
+        //{
+        //    Navigation.PopAsync();
+        //}
 
-        void ListBtnPressed(object sender, System.EventArgs e)
+        async void ListBtnPressed(object sender, System.EventArgs e)
         {
-            var listePage = new NavigationPage(new ListePage());
-            Navigation.PushModalAsync(listePage);
+            await Navigation.PushAsync(new ListePage());
         }
     }
 }
