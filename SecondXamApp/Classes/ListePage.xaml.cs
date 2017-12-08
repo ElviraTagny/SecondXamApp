@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace SecondXamApp.Classes
 {
-    public partial class ListePage : ContentPage
+    public partial class ListePage : ContentPage, IEmailMessage
     {
         public ListePage()
         {
@@ -34,11 +34,23 @@ namespace SecondXamApp.Classes
 
         }
 
+        public string Message => throw new NotImplementedException();
+
+        public List<IEmailAttachment> Attachments => throw new NotImplementedException();
+
+        public List<string> Recipients => throw new NotImplementedException();
+
+        public List<string> RecipientsBcc => throw new NotImplementedException();
+
+        public List<string> RecipientsCc => throw new NotImplementedException();
+
+        public string Subject => throw new NotImplementedException();
+
         async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             var selectedItem = e.Item as ListViewTemplate;
             ((ListView)sender).SelectedItem = null;
-            var result = await DisplayAlert("Contact " + selectedItem.ContactName, "Number is " + selectedItem.ContactNum, "Cancel", "Send SMS");
+            var result = await DisplayAlert("Contact " + selectedItem.ContactName, "Number is " + selectedItem.ContactNum, "Cancel", "Send Email");
             if (!result)
             {
                 /*if (Device.OS != TargetPlatform.WinPhone)
@@ -53,12 +65,17 @@ namespace SecondXamApp.Classes
                     await DisplayAlert("Error", "This app cannot query for scheme tel on this device. Try on a real one.", "OK");
                 }*/
 
-                var smsSender = CrossMessaging.Current.SmsMessenger;
+                /*var smsSender = CrossMessaging.Current.SmsMessenger;
                 if(smsSender.CanSendSmsInBackground){
                     smsSender.SendSmsInBackground(recipient:"0033624033685", message:"Coucou from Xamarin App");
                 }
                 else {
                     await DisplayAlert("Error", "This app cannot send SMS from this device. Try on a real one.", "OK");
+                }*/
+
+                var emailSender = CrossMessaging.Current.EmailMessenger;
+                if(emailSender.CanSendEmail){
+                    emailSender.SendEmail(this);
                 }
             }
         }
