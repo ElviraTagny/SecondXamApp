@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Plugin.Messaging;
+using Plugin.Share;
+using Plugin.Share.Abstractions;
 using Xamarin.Forms;
 
 namespace SecondXamApp.Classes
@@ -73,10 +75,16 @@ namespace SecondXamApp.Classes
                     await DisplayAlert("Error", "This app cannot send SMS from this device. Try on a real one.", "OK");
                 }*/
 
-                var emailSender = CrossMessaging.Current.EmailMessenger;
+                /*var emailSender = CrossMessaging.Current.EmailMessenger;
                 if(emailSender.CanSendEmail){
                     emailSender.SendEmail(this);
-                }
+                }*/
+
+                ShareMessage message = new ShareMessage();
+                message.Text = "COucou from Xam App";
+                message.Title = "Sharing";
+                //await CrossShare.Current.Share(message);
+                await CrossShare.Current.OpenBrowser("http://munabees.com");
             }
         }
     }
