@@ -7,7 +7,10 @@ namespace SecondXamApp.Classes
         {
         }
 
-        public String ContactName { get; set; }
-        public String ContactNum { get; set; }
+        public String Name { get; set; }
+        public String Description { get; set; }
+        public String Image { get; set; }
+        public int Id { get; set; }
+
     }
 }

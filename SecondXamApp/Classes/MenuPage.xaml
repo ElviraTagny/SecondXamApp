@@ -62,6 +62,13 @@
                 Style="{StaticResource menuButton}"
                 Clicked="ListBtnPressed"
                 />
+        <Button 
+                x:Name="ContactBtn"
+                Text="Afficher les contacts"
+                BackgroundColor="Red"
+                Style="{StaticResource menuButton}"
+                Clicked="ContactBtnPressed"
+                />
         </StackLayout>
     <!--</StackLayout>-->
 </ContentPage>

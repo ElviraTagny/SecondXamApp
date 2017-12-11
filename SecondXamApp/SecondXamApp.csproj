@@ -38,6 +38,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\ContactPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -54,6 +58,10 @@
       <DependentUpon>ListePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\ListViewTemplate.cs" />
+    <Compile Include="Classes\ContactTemplate.cs" />
+    <Compile Include="Classes\ContactPage.xaml.cs">
+      <DependentUpon>ContactPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

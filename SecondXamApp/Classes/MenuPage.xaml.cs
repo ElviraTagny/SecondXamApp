@@ -57,5 +57,10 @@ namespace SecondXamApp
         {
             await Navigation.PushAsync(new ListePage());
         }
+
+        async void ContactBtnPressed(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new ContactPage());
+        }
     }
 }
